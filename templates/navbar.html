@@ -1,0 +1,42 @@
+<div class="navbar-div">
+    <div id="logo">
+        <img src="https://picsum.photos/100" alt="logo">
+    </div>
+    <div id="searchbar">
+        <input type="search" name="search" value="Search something...">
+        <button><i class="fa fa-search"></i></button>
+    </div>
+    <div id="nav_menu">
+
+        {% for menu in menus %}
+
+        <a class="nav_menu_el" href="#">
+            {{menu}}
+        </a>
+
+        {% endfor %}
+
+    </div>
+    <button id="nav_ham_butt" onclick="toggleNavHamMenu()"><i class="fa fa-bars"></i></button>
+    <div id="nav_ham_menu">
+
+        {% for menu in menus %}
+
+        <a class="nav_ham_menu_el" href="#">
+            {{menu}}
+        </a>
+
+        {% endfor %}
+</div>
+</div>
+<script>
+    function toggleNavHamMenu() {
+        var menu=document.getElementById("nav_ham_menu")
+        menu.style.display!="flex" && window.innerWidth<=1200?menu.style.display="flex":menu.style.display="none"
+    }
+    window.onresize=function(){
+        if (window.innerWidth>1200){
+            document.getElementById("nav_ham_menu").style.display="none"
+        }
+    }
+</script>
