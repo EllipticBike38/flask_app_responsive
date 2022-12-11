@@ -1,7 +1,7 @@
 {% extends 'main.html' %}
-<head>
+{% block style_body %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup.css') }}">
-</head>
+{% endblock style_body %}
 {% block body %}
 <form
     action="http://api.mini-desktop-pc.homenet.telecomitalia.it:5555/user/login"
@@ -9,11 +9,19 @@
 
     <div id="loginform_div">
         
-        <input type="email" name="email" id="email">
-        <input type="password" name="password" id="password">
-        <input type="submit">
+        <label for="email">email</label>
+        <input class="logiform_div_element" type="email" name="email" id="email" required>
+        <label for="password">password</label>
+        <input class="logiform_div_element" type="password" name="password" id="password" required>
+
+        <div id = "loginform_div_buttons">
+            <button class="loginform_button button_good" type="submit">Submit</button>
+            <button class="loginform_button button_bad" type="button" onclick="GoToHomePage()">Go Back</button>
+            <p class="alreadyLogged">
+                Non sei registrato? <a href="/signup">Registrati</a>
+            </p>
+        </div>
     </div>
-    <a href="/signup">non sei registrato?</a>
 
 </form>
 {% endblock body %}

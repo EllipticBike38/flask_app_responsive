@@ -28,8 +28,8 @@ def signup():
     return render_template('signup.html',**context)
 
 if __name__ == "__main__":
-    # FlaskUI(app=app, server="flask",width=500, height=500).run()
     db_init()
     app.run("0.0.0.0",5555,True)
+    # FlaskUI(app=app, server="flask",width=500, height=500).run()
 
     

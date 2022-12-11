@@ -1,0 +1,56 @@
+#loginform_div{
+    display: flex;
+    flex-direction: column;
+    margin:5vh 33vw;
+    padding: 1vh 2vw;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow:  20px 20px 60px #bebebe,
+                 -20px -20px 60px #ffffff;
+    /* transition:margin 0.5s; */
+}
+#loginform_div label{
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-variant: small-caps;
+}
+.logiform_div_element{
+    height: 2.5em;
+    padding: 0 10px;
+}
+
+#loginform_div_buttons{
+    margin: 3%;
+    text-align: center;
+}
+.loginform_button{
+    color: white;
+    border: 0;
+    width: 25%;
+    height: 2.5em;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.button_good{
+    background-color: green ;
+}
+.button_bad{
+    background-color: red;
+}
+.button_soso{
+    background-color: yellow;
+}
+.alreadyLogged{
+    margin: 0 0 0 3;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+}
+@media screen and (max-width: 1200px){
+    #loginform_div{
+        margin:5vh 25vw;
+    }
+}
+
+@media screen and (max-width: 600px){
+    #loginform_div{
+        margin:5vh 5vw;
+    }
+}

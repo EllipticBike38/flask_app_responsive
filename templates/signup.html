@@ -1,20 +1,46 @@
 {% extends 'main.html' %}
-<head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup.css') }}">
-</head>
+{% block style_body %}
+<link rel="stylesheet" href="{{ url_for('static',
+    filename='css/login_signup.css') }}">
+{% endblock style_body %}
 {% block body %}
 <form
+    id="loginform"
     action="http://api.mini-desktop-pc.homenet.telecomitalia.it:5555/user/login"
     method="post">
 
     <div id="loginform_div">
-        <input type="text" name="name" id="name" required>
-        <input type="text" name="surname" id="surname" required>
-        <input type="email" name="email" id="email" required>
-        <input type="password" name="password" id="password" required>
-        <input type="date" id="birthdate" name="birthdate" min="1900-01-01" required>
-        <input type="submit">
+        <label for="name">name</label>
+        <input class="logiform_div_element" type="text" name="name" id="name"
+            required>
+        <label for="surname">surname</label>
+        <input class="logiform_div_element" type="text" name="surname"
+            id="surname" required>
+        <label for="email">email</label>
+        <input class="logiform_div_element" type="email" name="email" id="email"
+            required>
+        <label for="password">password</label>
+        <input class="logiform_div_element" type="password" name="password"
+            id="password" required>
+        <label for="birthdate">birthdate</label>
+        <input class="logiform_div_element" type="date" id="birthdate"
+            name="birthdate" min="1900-01-01" required>
+        <div id="loginform_div_buttons">
+            <button class="loginform_button button_good" type="submit">Submit</button>
+            <button class="loginform_button button_bad" type="button"
+                onclick="GoToHomePage()">Go Back</button>
+            <p class="alreadyLogged">
+                Sei già registrato? <a href="/login">Accedi</a>
+            </p>
+        </div>
+        <!-- <input type="submit">  -->
     </div>
 
 </form>
+<script>   
+function GoToHomePage()
+    {
+      window.location = '/';   
+    }
+</script>
 {% endblock body %}
