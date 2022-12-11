@@ -10,8 +10,8 @@
 
         {% for menu in menus %}
 
-        <a class="nav_menu_el" href="#">
-            {{menu}}
+        <a class="nav_menu_el" href="{{menu[1]}}">
+            {{menu[0]}}
         </a>
 
         {% endfor %}
@@ -22,8 +22,8 @@
 
         {% for menu in menus %}
 
-        <a class="nav_ham_menu_el" href="#">
-            {{menu}}
+        <a class="nav_ham_menu_el" href="{{menu[1]}}">
+            {{menu[0]}}
         </a>
 
         {% endfor %}
