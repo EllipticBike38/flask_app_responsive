@@ -1,4 +1,5 @@
 import datetime
+from hashlib import sha256
 from flask import Blueprint,request
 import sqlite3
 import uuid
@@ -9,6 +10,12 @@ blueprint = Blueprint('user', __name__)
 @blueprint.route('/login', methods=["POST"])
 def user_login():
     form=request.form
+    pwd=crud.user.find_password_by_email(form['email'])
+    password=sha256(form['password'].encode('utf8')).hexdigest()
+    if password==pwd:
+        print('ok')
+    else:
+        print('Nope')
     return form
     
 
@@ -20,7 +27,7 @@ def user_signup():
         form['name'],
         form['surname'],
         form['email'],
-        form['password'],
+        sha256(form['password'].encode('utf8')).hexdigest(),
         int(datetime.datetime.fromisoformat(form['birthdate']).timestamp())
     ]
     return crud.user.create_user(data)
