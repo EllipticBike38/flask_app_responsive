@@ -1,0 +1,19 @@
+{% extends 'main.html' %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login_signup.css') }}">
+</head>
+{% block body %}
+<form
+    action="http://api.mini-desktop-pc.homenet.telecomitalia.it:5555/user/login"
+    method="post">
+
+    <div id="loginform_div">
+        
+        <input type="email" name="email" id="email">
+        <input type="password" name="password" id="password">
+        <input type="submit">
+    </div>
+    <a href="/signup">non sei registrato?</a>
+
+</form>
+{% endblock body %}
