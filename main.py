@@ -1,10 +1,12 @@
 from flask import Flask, render_template
 from flaskwebgui import FlaskUI
-from api import db_init, api
+from routers import api
+from crud import utils
 
 app = Flask(__name__, subdomain_matching=True)
 app.config['SERVER_NAME'] = "mini-desktop-pc.homenet.telecomitalia.it:5555"
 app.register_blueprint(api, subdomain="api")
+print(app.url_map)
 
 
 context={'menus':[
@@ -28,7 +30,7 @@ def signup():
     return render_template('signup.html',**context)
 
 if __name__ == "__main__":
-    db_init()
+    utils.db_init()
     app.run("0.0.0.0",5555,True)
     # FlaskUI(app=app, server="flask",width=500, height=500).run()
 
